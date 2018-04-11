@@ -1,3 +1,0 @@
-// @flow
-
-test("nothing", (): void => {});

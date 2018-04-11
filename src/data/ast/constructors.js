@@ -21,3 +21,12 @@ export const abstraction = <Identifier>(
 ): Abstraction<Identifier> => ({ type: "Abstraction", head, body });
 
 export const abs = abstraction;
+
+export const curry = <Identifier>(
+  args: Identifier[],
+  body: Ast<Identifier>
+): Ast<Identifier> =>
+  args.reverse().reduce((memo, arg) => abstraction(arg, memo), body);
+
+export const apply = <Identifier>(terms: Ast<Identifier>[]): Ast<Identifier> =>
+  terms.reduce((memo, term) => application(memo, term));

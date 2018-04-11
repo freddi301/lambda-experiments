@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "yarn run flow && babel src -d lib",
-    "precommit": "pretty-quick --staged",
-    "test": "jest"
+    "build": "flow && babel src -d lib",
+    "precommit": "yarn run test && pretty-quick --staged",
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
